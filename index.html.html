@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Mundial FIFA 2026 – Somos Internet SAC</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #0F6E56;
+    --green-mid: #1D9E75;
+    --green-light: #E1F5EE;
+    --green-text: #085041;
+    --blue-light: #E6F1FB;
+    --blue-text: #0C447C;
+    --amber-light: #FAEEDA;
+    --amber-text: #633806;
+    --red-light: #FCEBEB;
+    --red-text: #791F1F;
+    --teal-light: #E1F5EE;
+    --teal-text: #085041;
+    --gray-bg: #F8F8F6;
+    --gray-card: #ffffff;
+    --gray-border: rgba(0,0,0,0.1);
+    --text-primary: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .page-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 55%, #04342C 100%);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '⚽';
+    position: absolute;
+    right: -15px;
+    top: -25px;
+    font-size: 130px;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero h1 { font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 0.4rem; }
+  .hero p { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.6; max-width: 520px; }
+  .hero-stats { display: flex; gap: 24px; margin-top: 1.25rem; flex-wrap: wrap; }
+  .hero-stat .num { font-size: 24px; font-weight: 600; color: #fff; }
+  .hero-stat .lbl { font-size: 11px; color: rgba(255,255,255,0.7); }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: #ece9e1;
+    border-radius: var(--radius-md);
+    padding: 4px;
+    margin-bottom: 1.25rem;
+  }
+  .tab {
+    flex: 1;
+    padding: 9px 4px 7px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+    line-height: 1.3;
+  }
+  .tab:hover { color: var(--text-primary); }
+  .tab.active {
+    background: #fff;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .tab-icon { display: block; font-size: 17px; margin-bottom: 2px; }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* CARD */
+  .card {
+    background: var(--gray-card);
+    border: 0.5px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* OPTION GRID */
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0.75rem 0; }
+  @media (max-width: 480px) { .option-grid { grid-template-columns: 1fr; } }
+  .option-card {
+    background: var(--gray-bg);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    border: 0.5px solid var(--gray-border);
+  }
+  .option-card.featured { border: 1.5px solid var(--green-mid); background: var(--green-light); }
+  .option-name { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .option-price { font-size: 20px; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
+  .option-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* STEPS */
+  .step { display: flex; gap: 12px; margin-bottom: 0.875rem; align-items: flex-start; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--green-mid); color: #fff;
+    font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .step-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
+
+  /* TAG */
+  .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; }
+  .tag-green { background: #EAF3DE; color: #27500A; }
+  .tag-blue { background: var(--blue-light); color: var(--blue-text); }
+  .tag-amber { background: var(--amber-light); color: var(--amber-text); }
+  .tag-teal { background: var(--teal-light); color: var(--teal-text); }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 1rem 0 0.5rem;
+  }
+
+  /* CHANNEL ROWS */
+  .channel-row { display: flex; align-items: center; gap: 10px; padding: 0.65rem 0; border-bottom: 0.5px solid var(--gray-border); }
+  .channel-row:last-child { border-bottom: none; }
+  .ch-icon { width: 34px; height: 34px; border-radius: 6px; background: var(--gray-bg); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .ch-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .ch-note { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+  .ch-info { flex: 1; }
+  .ch-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; white-space: nowrap; }
+  .ch-inc { background: #EAF3DE; color: #27500A; }
+  .ch-free { background: var(--teal-light); color: var(--teal-text); }
+  .ch-paid { background: var(--amber-light); color: var(--amber-text); }
+
+  /* FAQ */
+  .faq-item { border-bottom: 0.5px solid var(--gray-border); padding: 0.85rem 0; cursor: pointer; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-size: 13px; font-weight: 600; color: var(--text-primary); display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .faq-chevron { flex-shrink: 0; font-size: 16px; color: var(--text-tertiary); transition: transform 0.2s; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-a { font-size: 13px; color: var(--text-secondary); line-height: 1.65; padding-top: 0.6rem; display: none; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* QUIZ */
+  .quiz-q { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem; line-height: 1.55; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt {
+    background: var(--gray-bg);
+    border: 0.5px solid var(--gray-border);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    font-size: 13px; color: var(--text-secondary);
+    cursor: pointer; text-align: left;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .quiz-opt:hover { border-color: rgba(0,0,0,0.2); color: var(--text-primary); }
+  .quiz-opt.correct { background: #EAF3DE; border-color: #3B6D11; color: #173404; font-weight: 500; }
+  .quiz-opt.wrong { background: var(--red-light); border-color: #A32D2D; color: var(--red-text); }
+  .quiz-feedback {
+    font-size: 13px; margin-top: 0.85rem; padding: 0.85rem 1rem;
+    border-radius: var(--radius-md); display: none; line-height: 1.6;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: #EAF3DE; color: #173404; }
+  .quiz-feedback.ko { background: var(--red-light); color: var(--red-text); }
+  .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+  .quiz-progress { font-size: 12px; color: var(--text-tertiary); }
+
+  /* BUTTONS */
+  .btn {
+    background: transparent;
+    border: 0.5px solid rgba(0,0,0,0.2);
+    border-radius: var(--radius-md);
+    padding: 9px 18px;
+    font-size: 13px; cursor: pointer;
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .btn:hover { background: var(--gray-bg); }
+  .btn-primary { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+  .btn-primary:hover { background: var(--green-mid); border-color: var(--green-mid); }
+
+  /* CHECKLIST */
+  .checklist-item { display: flex; gap: 10px; align-items: flex-start; padding: 0.8rem; border-bottom: 0.5px solid var(--gray-border); cursor: pointer; border-radius: 6px; transition: background 0.1s; }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-item:hover { background: var(--gray-bg); }
+  .check-box {
+    width: 22px; height: 22px;
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius: 5px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; margin-top: 0px;
+  }
+  .checklist-item.done .check-box { background: var(--green-mid); border-color: var(--green-mid); }
+  .check-tick { color: #fff; font-size: 13px; display: none; }
+  .checklist-item.done .check-tick { display: block; }
+  .check-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .checklist-item.done .check-text { color: var(--text-tertiary); text-decoration: line-through; }
+
+  .progress-bar-wrap { background: #e5e2da; border-radius: 10px; height: 7px; margin: 0.5rem 0 0.35rem; }
+  .progress-bar { height: 7px; border-radius: 10px; background: var(--green-mid); transition: width 0.3s; }
+  .progress-label { font-size: 12px; color: var(--text-tertiary); margin-bottom: 0.85rem; }
+
+  /* FINISH */
+  .finish-screen { text-align: center; padding: 2rem 1rem; }
+  .finish-screen .emoji { font-size: 48px; margin-bottom: 0.75rem; }
+  .finish-screen h2 { font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
+  .finish-screen p { font-size: 13px; color: var(--text-secondary); margin-bottom: 1.25rem; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Material Formativo SAC · 2026</div>
+    <h1>Guía Mundial FIFA 2026 ⚽</h1>
+    <p>Todo lo que necesitas saber para asesorar a nuestros clientes sobre cómo ver el Mundial con Somos Internet</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">104</div><div class="lbl">partidos totales</div></div>
+      <div class="hero-stat"><div class="num">~35</div><div class="lbl">en TV abierta</div></div>
+      <div class="hero-stat"><div class="num">$24K</div><div class="lbl">TV Somos/mes</div></div>
+      <div class="hero-stat"><div class="num">7</div><div class="lbl">canales ESPN</div></div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="showSection('overview', this)">
+      <span class="tab-icon"><i class="ti ti-book"></i></span>Resumen
+    </button>
+    <button class="tab" onclick="showSection('channels', this)">
+      <span class="tab-icon"><i class="ti ti-device-tv"></i></span>Canales
+    </button>
+    <button class="tab" onclick="showSection('faq', this)">
+      <span class="tab-icon"><i class="ti ti-message-question"></i></span>FAQ
+    </button>
+    <button class="tab" onclick="showSection('quiz', this)">
+      <span class="tab-icon"><i class="ti ti-brain"></i></span>Quiz
+    </button>
+    <button class="tab" onclick="showSection('checklist', this)">
+      <span class="tab-icon"><i class="ti ti-checklist"></i></span>Checklist
+    </button>
+  </div>
+
+  <!-- ======================== SECTION: RESUMEN ======================== -->
+  <div class="section active" id="section-overview">
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-alert-circle" style="color:var(--green-mid);font-size:18px;"></i> Lo primero que debes saber</div>
+      <div class="card-body">
+        La FIFA divide los derechos de transmisión en paquetes. <strong>Ningún canal colombiano tiene los 104 partidos</strong>. Caracol, RCN y Win Sport tienen ~35 partidos. Para verlos todos se necesita <strong>DirecTV / DGO</strong>. Somos ofrece la conectividad perfecta y la TV Box para completar la experiencia.
+      </div>
+    </div>
+
+    <div class="section-label">Las 3 opciones que ofrece Somos</div>
+
+    <div class="option-grid">
+      <div class="option-card featured">
+        <div class="option-name">📺 TV Box Somos</div>
+        <div class="option-price">$24.000/mes</div>
+        <div class="option-desc">RCN, Caracol, 7 señales ESPN, Sportsmax + <strong>2 meses Win Sports Lite gratis</strong></div>
+      </div>
+      <div class="option-card">
+        <div class="option-name">📡 DGO (DirecTV Go)</div>
+        <div class="option-price">Plan DirecTV</div>
+        <div class="option-desc">Los 104 partidos completos. App en Smart TV, celular o PC. Requiere buena fibra para 4K sin cortes.</div>
+      </div>
+    </div>
+
+    <div class="option-card" style="margin-bottom: 0.85rem;">
+      <div class="option-name">📱 Apps móviles</div>
+      <div class="option-desc" style="margin-top:5px;">
+        <strong>DGO</strong> (104 partidos si tiene suscripción) · <strong>App RCN / App Caracol</strong> (señal abierta gratis) · <strong>FIFA+</strong> (estadísticas y noticias) · <strong>ESPN App</strong> (análisis). Conectado al WiFi de Somos no consume datos del celular.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-plus" style="color:var(--green-mid);font-size:18px;"></i> TV Box adicional</div>
+      <div class="card-body">Si el cliente tiene más de un televisor, puede agregar una TV Box extra por solo <strong>$10.000/mes</strong>. Ideal para la sala y el cuarto al mismo tiempo.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-wifi" style="color:var(--green-mid);font-size:18px;"></i> ¿Por qué es clave la fibra óptica?</div>
+      <div class="card-body">
+        El streaming en alta definición necesita una conexión estable y simétrica. Con cables de cobre, la imagen se congela en los momentos clave (el famoso "gol que el vecino escuchó primero"). Con Somos, la velocidad contratada es la velocidad que recibe el cliente — sin sorpresas en los momentos clave del partido.
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SECTION: CANALES ======================== -->
+  <div class="section" id="section-channels">
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-device-tv" style="color:var(--green-mid);font-size:18px;"></i> Incluidos en TV Box Somos ($24.000/mes)</div>
+      <div class="channel-row">
+        <div class="ch-icon">📺</div>
+        <div class="ch-info"><div class="ch-name">RCN Televisión</div><div class="ch-note">Partidos de Colombia, inaugural, semis, final. ~35 en total</div></div>
+        <span class="ch-badge ch-inc">Incluido</span>
+      </div>
+      <div class="channel-row">
+        <div class="ch-icon">📺</div>
+        <div class="ch-info"><div class="ch-name">Caracol Televisión</div><div class="ch-note">Mismos derechos que RCN. Señal abierta nacional en HD</div></div>
+        <span class="ch-badge ch-inc">Incluido</span>
+      </div>
+      <div class="channel-row">
+        <div class="ch-icon">🏅</div>
+        <div class="ch-info"><div class="ch-name">ESPN (7 señales)</div><div class="ch-note">ESPN · ESPN2 · ESPN3 · ESPN4 · ESPN5 · ESPN6 · ESPN7</div></div>
+        <span class="ch-badge ch-inc">Incluido</span>
+      </div>
+      <div class="channel-row">
+        <div class="ch-icon">📰</div>
+        <div class="ch-info"><div class="ch-name">Sportsmax News</div><div class="ch-note">Noticias deportivas 24h, lesiones, alineaciones confirmadas</div></div>
+        <span class="ch-badge ch-inc">Incluido</span>
+      </div>
+      <div class="channel-row">
+        <div class="ch-icon">🎮</div>
+        <div class="ch-info"><div class="ch-name">Esports Max</div><div class="ch-note">Videojuegos y fútbol virtual competitivo</div></div>
+        <span class="ch-badge ch-inc">Incluido</span>
+      </div>
+      <div class="channel-row">
+        <div class="ch-icon">⚽</div>
+        <div class="ch-info"><div class="ch-name">Win Sports Lite</div><div class="ch-note">22 partidos adicionales. Fútbol profesional colombiano</div></div>
+        <span class="ch-badge ch-free">2 meses gratis</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-external-link" style="color:#185FA5;font-size:18px;"></i> Con DGO de DirecTV (suscripción aparte)</div>
+      <div class="channel-row" style="border-bottom:none;">
+        <div class="ch-icon">🌐</div>
+        <div class="ch-info">
+          <div class="ch-name">DGO – DirecTV Go</div>
+          <div class="ch-note">Los 104 partidos completos. El cliente contrata directo con DirecTV. Somos garantiza la conexión perfecta para verlos en 4K.</div>
+        </div>
+        <span class="ch-badge ch-paid">Suscripción aparte</span>
+      </div>
+    </div>
+
+    <div class="section-label">Cómo crear cuenta en DGO — guía para el cliente</div>
+    <div class="card">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><div class="step-title">Ir a DGO</div><div class="step-desc">Entrar a dgo.com o descargar la app en el celular. Buscar "Crear cuenta".</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><div class="step-title">Completar datos personales</div><div class="step-desc">Nombre, correo electrónico y contraseña. Presionar "Crear cuenta".</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><div class="step-title">Iniciar sesión</div><div class="step-desc">Volver a la app o página con el correo y contraseña que registró.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><div class="step-title">Elegir plan</div><div class="step-desc">Seleccionar el plan que mejor se ajuste a sus necesidades.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content"><div class="step-title">¡A disfrutar!</div><div class="step-desc">Con la cuenta activa ya puede ver los canales y los 104 partidos del Mundial.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SECTION: FAQ ======================== -->
+  <div class="section" id="section-faq">
+    <div class="card">
+      <div class="card-title" style="margin-bottom:0.75rem;"><i class="ti ti-message-question" style="color:var(--green-mid);font-size:18px;"></i> Preguntas frecuentes de clientes</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Puedo ver todos los partidos del mundial solo con Somos? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">No todos. Con la TV Box de Somos accedes a RCN, Caracol y ESPN (~35 partidos + los de ESPN). Para ver los <strong>104 partidos completos</strong>, el cliente necesita contratar DGO de DirecTV por separado y usarlo sobre su conexión Somos.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Qué es Win Sports Lite y cómo se activa? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">Es la plataforma digital de Win Sport que incluye fútbol profesional colombiano y <strong>22 partidos adicionales del Mundial</strong>. Se activa automáticamente al contratar la TV Box. Los <strong>primeros 2 meses son gratis</strong> como bienvenida al servicio.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Cuánto cuesta la TV Box de Somos? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">El servicio de TV por streaming cuesta <strong>$24.000 al mes</strong>. Si el cliente tiene un segundo televisor, puede agregar otra TV Box por solo <strong>$10.000 adicionales al mes</strong>.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Cuántos canales ESPN incluye la TV Box? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">Incluye <strong>7 señales ESPN</strong>: ESPN, ESPN 2, ESPN 3, ESPN 4, ESPN 5, ESPN 6 y ESPN 7. Esto le permite al cliente ver un partido en un canal mientras otro ofrece análisis en vivo y otro repite los mejores momentos de la jornada.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Puedo ver el mundial desde el celular? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">Sí. Recomendarle al cliente estas apps: <strong>DGO</strong> (si tiene suscripción, accede a los 104 partidos), <strong>App RCN</strong> o <strong>App Caracol</strong> (partidos de señal abierta, gratis), <strong>FIFA+</strong> (estadísticas y noticias oficiales), <strong>ESPN App</strong> (análisis y goles). Conectado al WiFi de Somos no consume datos del celular.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">¿Por qué la fibra óptica es mejor para ver el mundial? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">Con conexiones antiguas (cobre) hay latencia: la imagen se congela y el cliente escucha el gol del vecino antes de verlo en pantalla. Con la fibra de Somos la velocidad es simétrica y estable. <strong>Lo que contratas es lo que recibes</strong>, sin sorpresas en los momentos clave del partido.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:none;">
+        <div class="faq-q">¿Qué partidos transmiten RCN y Caracol? <i class="ti ti-chevron-down faq-chevron"></i></div>
+        <div class="faq-a">Históricamente transmiten los partidos de la <strong>Selección Colombia</strong>, el partido inaugural, las semifinales y la gran final, más algunos juegos atractivos de la fase de grupos. En total aproximadamente <strong>35 de los 104 partidos</strong> del torneo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SECTION: QUIZ ======================== -->
+  <div class="section" id="section-quiz">
+    <div class="card" id="quiz-card">
+      <div id="quiz-container"></div>
+    </div>
+  </div>
+
+  <!-- ======================== SECTION: CHECKLIST ======================== -->
+  <div class="section" id="section-checklist">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-checklist" style="color:var(--green-mid);font-size:18px;"></i> Lista de verificación del analista SAC</div>
+      <div style="font-size:12px; color:var(--text-secondary); margin-bottom:0.75rem;">Marca lo que ya dominas para el Mundial 2026 👇</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+      <div class="progress-label" id="progress-label">0 de 10 completados</div>
+
+      <div id="checklist-items">
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Sé cuántos partidos tiene el Mundial 2026 en total (104)</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Sé cuántos partidos transmiten RCN y Caracol (~35)</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Conozco el precio de la TV Box de Somos ($24.000/mes)</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Sé que la TV Box incluye 7 canales ESPN</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Puedo explicar qué es Win Sports Lite y los 2 meses gratis</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Sé que la TV Box adicional cuesta $10.000/mes</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Puedo guiar al cliente para crear su cuenta en DGO (5 pasos)</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Sé recomendar las apps móviles: DGO, FIFA+, RCN, Caracol, ESPN</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Entiendo por qué la fibra óptica elimina la latencia (efecto "vecino grita primero")</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"><span class="check-tick">✓</span></div><div class="check-text">Puedo guiar a un cliente con todos los pasos para ver el Mundial completo</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+const quizData = [
+  {
+    q: "¿Cuántos partidos transmiten en total RCN y Caracol del Mundial 2026?",
+    opts: ["104 partidos (todos)", "Aproximadamente 35 partidos", "50 partidos", "Solo los de la Selección Colombia"],
+    correct: 1,
+    feedback: "✅ Correcto. RCN y Caracol tienen derechos para ~35 partidos: los de Colombia, el inaugural, semis y final. Para los 104 completos se necesita DGO de DirecTV."
+  },
+  {
+    q: "¿Cuánto cuesta el servicio de TV por streaming de Somos?",
+    opts: ["$10.000 al mes", "$24.000 al mes", "$34.000 al mes", "Es gratuito con el plan de internet"],
+    correct: 1,
+    feedback: "✅ Correcto. La TV Box de Somos cuesta $24.000/mes e incluye RCN, Caracol, 7 canales ESPN, Sportsmax y 2 meses de Win Sports Lite gratis."
+  },
+  {
+    q: "Un cliente quiere ver los 104 partidos del Mundial. ¿Qué le recomendamos?",
+    opts: ["Solo la TV Box de Somos es suficiente", "Comprar una antena satelital DirecTV", "Contratar DGO de DirecTV y usarlo sobre la fibra de Somos", "Buscar streams en YouTube"],
+    correct: 2,
+    feedback: "✅ Correcto. DirecTV tiene los derechos totales en Colombia. Con DGO accede a los 104 partidos, y la fibra de Somos garantiza la mejor experiencia sin interrupciones."
+  },
+  {
+    q: "¿Qué incluye Win Sports Lite al contratar la TV Box?",
+    opts: ["Es un canal extra con costo adicional", "Los primeros 2 meses gratis con 22 partidos adicionales", "Es la señal de Win Sport tradicional por cable", "Solo está disponible para clientes premium"],
+    correct: 1,
+    feedback: "✅ Correcto. Al activar la TV Box, el cliente recibe hasta 2 meses de Win Sports Lite gratis, con fútbol profesional colombiano y 22 partidos adicionales del Mundial."
+  },
+  {
+    q: "¿Qué problema resuelve la fibra óptica de Somos al ver streaming?",
+    opts: ["Aumenta el tamaño de la pantalla del televisor", "Elimina la latencia, para no escuchar el gol del vecino primero", "Permite contratar DGO más barato", "Baja el precio mensual de la TV Box"],
+    correct: 1,
+    feedback: "✅ Correcto. La latencia ocurre con conexiones inestables o de cobre. La fibra de Somos es simétrica: recibes la velocidad que contratas y no te pierdes los goles."
+  },
+  {
+    q: "¿Cuántos canales ESPN incluye la TV Box de Somos?",
+    opts: ["1 canal (ESPN)", "3 canales (ESPN, ESPN2, ESPN3)", "5 canales", "7 canales (ESPN hasta ESPN7)"],
+    correct: 3,
+    feedback: "✅ Correcto. Incluye 7 señales ESPN. Puedes ver un partido en uno mientras otro canal ofrece análisis en vivo y otro repite los mejores goles de la jornada."
+  }
+];
+
+let currentQ = 0;
+let answered = false;
+
+function renderQuiz() {
+  const q = quizData[currentQ];
+  const optsHtml = q.opts.map((o, i) =>
+    `<button class="quiz-opt" onclick="checkAnswer(${i})">${o}</button>`
+  ).join('');
+  document.getElementById('quiz-container').innerHTML = `
+    <div class="quiz-q">Pregunta ${currentQ + 1} de ${quizData.length}: ${q.q}</div>
+    <div class="quiz-opts">${optsHtml}</div>
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+    <div class="quiz-nav">
+      <span class="quiz-progress">Pregunta ${currentQ + 1} / ${quizData.length}</span>
+      <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn" style="display:none;">
+        ${currentQ === quizData.length - 1 ? '¡Ver resultado!' : 'Siguiente →'}
+      </button>
+    </div>`;
+  answered = false;
+}
+
+function checkAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = quizData[currentQ];
+  document.querySelectorAll('.quiz-opt').forEach((o, i) => {
+    if (i === q.correct) o.classList.add('correct');
+    else if (i === idx) o.classList.add('wrong');
+    o.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById('quiz-feedback');
+  fb.textContent = idx === q.correct ? q.feedback : '❌ Incorrecto. ' + q.feedback;
+  fb.className = 'quiz-feedback show ' + (idx === q.correct ? 'ok' : 'ko');
+  document.getElementById('next-btn').style.display = 'inline-block';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= quizData.length) {
+    document.getElementById('quiz-container').innerHTML = `
+      <div class="finish-screen">
+        <div class="emoji">🏆</div>
+        <h2>¡Quiz completado!</h2>
+        <p>Ya estás listo para asesorar a los clientes sobre el Mundial 2026 con Somos Internet.</p>
+        <button class="btn btn-primary" onclick="restartQuiz()">Volver a intentar</button>
+      </div>`;
+  } else {
+    renderQuiz();
+  }
+}
+
+function restartQuiz() { currentQ = 0; renderQuiz(); }
+
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'quiz') renderQuiz();
+}
+
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = document.querySelectorAll('.checklist-item').length;
+  const done = document.querySelectorAll('.checklist-item.done').length;
+  document.getElementById('progress-bar').style.width = Math.round((done / total) * 100) + '%';
+  document.getElementById('progress-label').textContent = done + ' de ' + total + ' completados';
+}
+</script>
+</body>
+</html>
