@@ -651,6 +651,33 @@ function updateProgress() {
   const done = document.querySelectorAll('.checklist-item.done').length;
   document.getElementById('progress-bar').style.width = Math.round((done / total) * 100) + '%';
   document.getElementById('progress-label').textContent = done + ' de ' + total + ' completados';
+ // FUNCIÓN PARA DESPLEGAR LOS PARTIDOS POR CANAL
+function toggleChannelSchedule(element) {
+  const scheduleBox = element.querySelector('.channel-schedule');
+  const chevron = element.querySelector('.ti-chevron-down, .ti-chevron-up');
+  
+  // Cerrar otros canales abiertos para mantener ordenado el flujo
+  document.querySelectorAll('.channel-schedule').forEach(box => {
+    if (box !== scheduleBox) box.style.display = 'none';
+  });
+  document.querySelectorAll('.channel-row-accordion .ti-chevron-up').forEach(chev => {
+    if (chev !== chevron) {
+      chev.classList.remove('ti-chevron-up');
+      chev.classList.add('ti-chevron-down');
+    }
+  });
+
+  // Alternar el canal seleccionado
+  if (scheduleBox.style.display === 'block') {
+    scheduleBox.style.display = 'none';
+    chevron.classList.remove('ti-chevron-up');
+    chevron.classList.add('ti-chevron-down');
+  } else {
+    scheduleBox.style.display = 'block';
+    chevron.classList.remove('ti-chevron-down');
+    chevron.classList.add('ti-chevron-up');
+  }
+}
 }
 </script>
 </body>
