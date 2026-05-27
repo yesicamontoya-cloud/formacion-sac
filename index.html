@@ -351,76 +351,110 @@
   <!-- ======================== SECTION: CANALES ======================== -->
   <div class="section" id="section-channels">
 
-    <div class="card">
-      <div class="card-title"><i class="ti ti-device-tv" style="color:var(--green-mid);font-size:18px;"></i> Incluidos en TV Box Somos ($24.000/mes)</div>
-      <div class="channel-row">
-        <div class="ch-icon">📺</div>
-        <div class="ch-info"><div class="ch-name">RCN Televisión</div><div class="ch-note">Partidos de Colombia, inaugural, semis, final. ~35 en total</div></div>
-        <span class="ch-badge ch-inc">Incluido</span>
-      </div>
-      <div class="channel-row">
-        <div class="ch-icon">📺</div>
-        <div class="ch-info"><div class="ch-name">Caracol Televisión</div><div class="ch-note">Mismos derechos que RCN. Señal abierta nacional en HD</div></div>
-        <span class="ch-badge ch-inc">Incluido</span>
-      </div>
-      <div class="channel-row">
-        <div class="ch-icon">🏅</div>
-        <div class="ch-info"><div class="ch-name">ESPN (7 señales)</div><div class="ch-note">ESPN · ESPN2 · ESPN3 · ESPN4 · ESPN5 · ESPN6 · ESPN7</div></div>
-        <span class="ch-badge ch-inc">Incluido</span>
-      </div>
-      <div class="channel-row">
-        <div class="ch-icon">📰</div>
-        <div class="ch-info"><div class="ch-name">Sportsmax News</div><div class="ch-note">Noticias deportivas 24h, lesiones, alineaciones confirmadas</div></div>
-        <span class="ch-badge ch-inc">Incluido</span>
-      </div>
-      <div class="channel-row">
-        <div class="ch-icon">🎮</div>
-        <div class="ch-info"><div class="ch-name">Esports Max</div><div class="ch-note">Videojuegos y fútbol virtual competitivo</div></div>
-        <span class="ch-badge ch-inc">Incluido</span>
-      </div>
-      <div class="channel-row">
-        <div class="ch-icon">⚽</div>
-        <div class="ch-info"><div class="ch-name">Win Sports Lite</div><div class="ch-note">22 partidos adicionales. Fútbol profesional colombiano</div></div>
-        <span class="ch-badge ch-free">2 meses gratis</span>
-      </div>
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 1rem; display: flex; align-items: center; width: 100%;">
+      <i class="ti ti-device-tv" style="color: var(--green-mid); font-size: 18px; margin-right: 6px;"></i> 
+      <span>Incluidos en TV Box Somos ($24.000/mes)</span>
+      <span style="font-size: 11px; color: var(--text-tertiary); font-weight: normal; margin-left: auto;">👉 Haz clic en un canal para ver su programación</span>
     </div>
-
-    <div class="card">
-      <div class="card-title"><i class="ti ti-external-link" style="color:#185FA5;font-size:18px;"></i> Con DGO de DirecTV (suscripción aparte)</div>
-      <div class="channel-row" style="border-bottom:none;">
-        <div class="ch-icon">🌐</div>
+    
+    <div class="channel-row-accordion" onclick="toggleChannelSchedule(this)" style="cursor: pointer; border-bottom: 0.5px solid var(--gray-border); padding: 0.65rem 0;">
+      <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+        <div class="ch-icon">📺</div>
         <div class="ch-info">
-          <div class="ch-name">DGO – DirecTV Go</div>
-          <div class="ch-note">Los 104 partidos completos. El cliente contrata directo con DirecTV. Somos garantiza la conexión perfecta para verlos en 4K.</div>
+          <div class="ch-name" style="font-weight: 600;">RCN Televisión (y Caracol TV) <i class="ti ti-chevron-down" style="font-size: 12px; margin-left: 4px; color: var(--text-tertiary);"></i></div>
+          <div class="ch-note">Partidos en señal abierta nacional en HD (~35 partidos)</div>
         </div>
-        <span class="ch-badge ch-paid">Suscripción aparte</span>
+        <span class="ch-badge ch-inc" style="margin-left: auto;">Incluido</span>
+      </div>
+      
+      <div class="channel-schedule" style="display: none; padding: 0.75rem 0.5rem 0.25rem 2.75rem; font-size: 12px;">
+        <table style="width: 100%; border-collapse: collapse; background: var(--gray-bg); border-radius: 6px; overflow: hidden;">
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.05); text-align: left; background: #eef2f0; font-weight: 600;"><td style="padding: 6px 10px;">Fecha / Hora Col</td><td style="padding: 6px 10px;">Partido</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 11 / 2:00 PM</td><td style="padding: 5px 10px;">México vs Sudáfrica</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 12 / 8:00 PM</td><td style="padding: 5px 10px;">Estados Unidos vs Paraguay</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 13 / 5:00 PM</td><td style="padding: 5px 10px;">Brasil vs Marruecos</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 14 / 3:00 PM</td><td style="padding: 5px 10px;">Países Bajos vs Japón</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 21 / 2:00 PM</td><td style="padding: 5px 10px;">Bélgica vs RI de Irán</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 22 / 12:00 PM</td><td style="padding: 5px 10px;">Argentina vs Australia</td></tr>
+          <tr style="background: #fff0f0; font-weight: 600;"><td style="padding: 5px 10px; color: var(--red-text);">Jun 23 / 9:00 PM</td><td style="padding: 5px 10px; color: var(--red-text);">🇨🇴 Colombia vs RD Congo</td></tr>
+        </table>
       </div>
     </div>
 
-    <div class="section-label">Cómo crear cuenta en DGO — guía para el cliente</div>
-    <div class="card">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content"><div class="step-title">Ir a DGO</div><div class="step-desc">Entrar a directvgo.com o descargar la app en el celular. Buscar "Crear cuenta".</div></div>
+    <div class="channel-row-accordion" onclick="toggleChannelSchedule(this)" style="cursor: pointer; border-bottom: 0.5px solid var(--gray-border); padding: 0.65rem 0;">
+      <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+        <div class="ch-icon">⚽</div>
+        <div class="ch-info">
+          <div class="ch-name" style="font-weight: 600;">Win Sports Lite <i class="ti ti-chevron-down" style="font-size: 12px; margin-left: 4px; color: var(--text-tertiary);"></i></div>
+          <div class="ch-note">22 partidos adicionales exclusivos en diferido/directo programados</div>
+        </div>
+        <span class="ch-badge ch-free" style="margin-left: auto;">2 meses gratis</span>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content"><div class="step-title">Completar datos personales</div><div class="step-desc">Nombre, correo electrónico y contraseña. Presionar "Crear cuenta".</div></div>
+      
+      <div class="channel-schedule" style="display: none; padding: 0.75rem 0.5rem 0.25rem 2.75rem; font-size: 12px;">
+        <table style="width: 100%; border-collapse: collapse; background: var(--gray-bg); border-radius: 6px; overflow: hidden;">
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.05); text-align: left; background: #fffaf0; font-weight: 600;"><td style="padding: 6px 10px;">Fecha / Hora Col</td><td style="padding: 6px 10px;">Partido</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 11 / 9:00 PM</td><td style="padding: 5px 10px;">Corea del Sur vs Chequia</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 12 / 2:00 PM</td><td style="padding: 5px 10px;">Canadá vs Bosnia y Herz.</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 13 / 2:00 PM</td><td style="padding: 5px 10px;">Catar vs Suiza</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 14 / 6:00 PM</td><td style="padding: 5px 10px;">Costa de Marfil vs Ecuador</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 21 / 11:00 AM</td><td style="padding: 5px 10px;">España vs Arabia Saudí</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 22 / 7:00 PM</td><td style="padding: 5px 10px;">Noruega vs Senegal</td></tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.03);"><td style="padding: 5px 10px;">Jun 23 / 12:00 PM</td><td style="padding: 5px 10px;">Portugal vs Uzbekistán</td></tr>
+        </table>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content"><div class="step-title">Iniciar sesión</div><div class="step-desc">Volver a la app o página con el correo y contraseña que registró.</div></div>
+    </div>
+
+    <div class="channel-row-accordion" onclick="toggleChannelSchedule(this)" style="cursor: pointer; border-bottom: 0.5px solid var(--gray-border); padding: 0.65rem 0;">
+      <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+        <div class="ch-icon">🏅</div>
+        <div class="ch-info">
+          <div class="ch-name" style="font-weight: 600;">ESPN (7 señales) <i class="ti ti-chevron-down" style="font-size: 12px; margin-left: 4px; color: var(--text-tertiary);"></i></div>
+          <div class="ch-note">ESPN · ESPN2 · ESPN3 · ESPN4 · ESPN5 · ESPN6 · ESPN7</div>
+        </div>
+        <span class="ch-badge ch-inc" style="margin-left: auto;">Included</span>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content"><div class="step-title">Elegir plan</div><div class="step-desc">Seleccionar el plan que mejor se ajuste a sus necesidades.</div></div>
+      <div class="channel-schedule" style="display: none; padding: 0.75rem 0.5rem 0.25rem 2.75rem; font-size: 12px; color: var(--text-secondary);">
+        ℹ️ <strong>Análisis técnico:</strong> Las 7 señales transmitirán programas de análisis en vivo, repeticiones de jugadas y resúmenes completos las 24 horas del día.
       </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-content"><div class="step-title">¡A disfrutar!</div><div class="step-desc">Con la cuenta activa ya puede ver los canales y los 104 partidos del Mundial.</div></div>
+    </div>
+
+    <div class="channel-row" style="padding: 0.65rem 0; border-bottom: 0.5px solid var(--gray-border); display: flex; align-items: center; gap: 10px;">
+      <div class="ch-icon">📰</div>
+      <div class="ch-info"><div class="ch-name">Sportsmax News</div><div class="ch-note">Noticias deportivas 24h, lesiones, alineaciones confirmadas</div></div>
+      <span class="ch-badge ch-inc" style="margin-left: auto;">Incluido</span>
+    </div>
+    <div class="channel-row" style="padding: 0.65rem 0; display: flex; align-items: center; gap: 10px;">
+      <div class="ch-icon">🎮</div>
+      <div class="ch-info"><div class="ch-name">Esports Max</div><div class="ch-note">Videojuegos y fútbol virtual competitivo</div></div>
+      <span class="ch-badge ch-inc" style="margin-left: auto;">Incluido</span>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <div class="card-title"><i class="ti ti-external-link" style="color:#185FA5;font-size:18px;"></i> Con DGO de DirecTV (Suscripción externa)</div>
+    <div class="channel-row" style="border-bottom:none; display: flex; align-items: center; gap: 10px;">
+      <div class="ch-icon">🌐</div>
+      <div class="ch-info">
+        <div class="ch-name" style="font-weight: 600;">DGO – DirecTV Go</div>
+        <div class="ch-note">Los 104 partidos completos. El cliente contrata directo con DirecTV. Somos garantiza la conexión perfecta para verlos en 4K.</div>
       </div>
+      <span class="ch-badge ch-paid" style="margin-left: auto;">Suscripción aparte</span>
     </div>
   </div>
+
+  <div class="section-label">Cómo crear cuenta en DGO – guía para el cliente</div>
+  <div class="card">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><div class="step-title">Ir a DGO</div><div class="step-desc">Entrar a directvgo.com o descargar la app en el celular. Buscar "Crear cuenta".</div></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><div class="step-title">Completar datos personales</div><div class="step-desc">Nombre, correo electrónico y contraseña. Presionar "Crear cuenta".</div></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><div class="step-title">Iniciar sesión</div><div class="step-desc">Volver a la app o página con el correo y contraseña que registró.</div></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><div class="step-title">Elegir plan</div><div class="step-desc">Seleccionar el plan que mejor se ajuste a sus necesidades.</div></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content"><div class="step-title">¡A disfrutar!</div><div class="step-desc">Con la cuenta activa ya puede ver los canales y los 104 partidos del Mundial.</div></div></div>
+  </div>
+
+</div>
 
   <!-- ======================== SECTION: FAQ ======================== -->
   <div class="section" id="section-faq">
