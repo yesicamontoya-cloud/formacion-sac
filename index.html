@@ -649,8 +649,13 @@ function toggleCheck(el) {
 function updateProgress() {
   const total = document.querySelectorAll('.checklist-item').length;
   const done = document.querySelectorAll('.checklist-item.done').length;
-  document.getElementById('progress-bar').style.width = Math.round((done / total) * 100) + '%';
-  document.getElementById('progress-label').textContent = done + ' de ' + total + ' completados';
+  if(document.getElementById('progress-bar')) {
+    document.getElementById('progress-bar').style.width = Math.round((done / total) * 100) + '%';
+  }
+  if(document.getElementById('progress-label')) {
+    document.getElementById('progress-label').textContent = done + ' de ' + total + ' completados';
+  }
+}
 
 // FUNCIÓN PARA DESPLEGAR LOS PARTIDOS POR CANAL
 function toggleChannelSchedule(element) {
@@ -658,16 +663,17 @@ function toggleChannelSchedule(element) {
   if (!scheduleBox) return;
 
   if (scheduleBox.style.display === 'none' || scheduleBox.style.display === '') {
-    // Cerrar los demás para mantener orden
+    // Ocultar cualquier otra tabla abierta para mantener el orden
     document.querySelectorAll('.channel-schedule').forEach(box => {
       box.style.display = 'none';
     });
-    // Mostrar este
+    // Mostrar la tabla de este canal
     scheduleBox.style.display = 'block';
   } else {
     scheduleBox.style.display = 'none';
   }
 }
+
 </script>
 </body>
 </html>
