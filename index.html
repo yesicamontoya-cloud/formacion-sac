@@ -657,14 +657,14 @@ function toggleChannelSchedule(element) {
   const scheduleBox = element.querySelector('.channel-schedule');
   if (!scheduleBox) return;
 
-  // Si la tabla está oculta, cerramos las otras y abrimos esta
   if (scheduleBox.style.display === 'none' || scheduleBox.style.display === '') {
+    // Cerrar los demás para mantener orden
     document.querySelectorAll('.channel-schedule').forEach(box => {
       box.style.display = 'none';
     });
+    // Mostrar este
     scheduleBox.style.display = 'block';
   } else {
-    // Si ya estaba abierta, la ocultamos
     scheduleBox.style.display = 'none';
   }
 }
